@@ -6,11 +6,16 @@ language: java
 
 matrix:
    include:
+      # always build this environment
       - jdk: openjdk8
+      # only on pull request
       - jdk: openjdk9
+        if: type IN (pull_request)
+      # only on pull request
       - os: osx
         osx_image: xcode10.1
-
+        if: type IN (pull_request)
+        
 # skip installation step
 install: true
 
